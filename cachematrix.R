@@ -30,7 +30,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## (and the matrix has not changed), then cacheinverse should retrieve the 
 ## inverse from the cache.
 
-cacheinverse <- function(x, ...) {
+cacheSolve <- function(x, ...) {
         m <- x$getinverse()
         if(!is.null(m)){
                 message("getting cached data")
@@ -48,10 +48,8 @@ cacheinverse <- function(x, ...) {
 m1 <- matrix(c(1/2, -1/4, -1, 3/4), nrow = 2, ncol = 2)
 solve(m1)
 myMatrix_object <- makeCacheMatrix(m1)
-cacheinverse(myMatrix_object)
-cacheinverse(myMatrix_object)
-
-
+cacheSolve(myMatrix_object)
+cacheSolve(myMatrix_object)
 
 
 
